@@ -1,0 +1,33 @@
+import base64
+
+# Function to encrypt the message using a simple Caesar cipher
+def encrypt(message, shift):
+    encrypted_message = ""
+    for char in message:
+        if char.isalpha():
+            encrypted_char = chr((ord(char) + shift - ord('A')) % 26 + ord('A')) if char.isupper() else chr((ord(char) + shift - ord('a')) % 26 + ord('a'))
+            encrypted_message += encrypted_char
+        else:
+            encrypted_message += char
+    return encrypted_message
+
+# Function to decrypt the message
+def decrypt(encrypted_message, shift):
+    return encrypt(encrypted_message, -shift)
+
+# Main function
+def main():
+    # Regular Python script
+    print("Welcome to the GTA 6 Updates Service!")
+
+    # Hidden message (encrypted GTA 6 update code)
+    encrypted_code = "Uifsf jt b sfdfou QVU 7 vqtubuf"
+    decryption_shift = 1  # Caesar cipher shift used for encryption
+
+    # Decryption and display of the hidden message
+    decrypted_message = decrypt(encrypted_code, decryption_shift)
+    print("Decrypted Message:", decrypted_message)
+
+# Execute the main function
+if __name__ == "__main__":
+    main()
